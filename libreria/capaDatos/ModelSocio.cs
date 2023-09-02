@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace capaDatos
 {
-    class ModelSocio : DataBaseConnector
+    public class ModelSocio : DataBaseConnector
     {
         public int id { get; set; }
         public string nombre { get; set; }

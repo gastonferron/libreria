@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace capaDatos
 {
-    class ModelLibro : DataBaseConnector
+    public class ModelLibro : DataBaseConnector
     {
         public int id { get; set; }
         public int icbn { get; set; }

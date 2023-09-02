@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace capaDatos
 {
-    class ModelPrestamo : DataBaseConnector
+    public class ModelPrestamo : DataBaseConnector
     {
         public int id { get; set; }
         public int socio { get; set; }
@@ -16,7 +16,7 @@ namespace capaDatos
 
         public void Save()
         {
-            this.Command.CommandText = $"INSERT INTO socio(socio, libro, fechaPrestamo, fechaDevolucion) " +
+            this.Command.CommandText = $"INSERT INTO prestamo(socio, libro, fechaPrestamo, fechaDevolucion) " +
                 $"VALUES('{this.socio}, {this.libro}, {this.fechaPrestamo}', '{this.fechaDevolucion}')";
 
             this.Command.ExecuteNonQuery();
