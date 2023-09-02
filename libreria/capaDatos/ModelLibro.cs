@@ -25,12 +25,12 @@ namespace capaDatos
             this.Command.ExecuteNonQuery();
         }
 
-        public List<ModelLibro> GetAllBooks()
+        public List<ModelLibro> obtenerLibros()
         {
-            this.Command.CommandText = "SELECT * FROM libros";
+            this.Command.CommandText = "SELECT * FROM libro";
             this.Reader = this.Command.ExecuteReader();
 
-            List<ModelLibro> result = new List<ModelLibro>();
+            List<ModelLibro> nuevoLibro = new List<ModelLibro>();
             while (this.Reader.Read())
             {
                 ModelLibro libro = new ModelLibro();
@@ -41,14 +41,14 @@ namespace capaDatos
                 libro.genero = this.Reader["genero"].ToString();
                 libro.fechaLanzamiento = this.Reader["fechalanzamiento"].ToString();
                 libro.cantidadPaginas = Int32.Parse(this.Reader["cantidadpaginas"].ToString());
-                result.Add(libro);
+                nuevoLibro.Add(libro);
             }
-            return result;
+            return nuevoLibro;
         }
 
         public void Delete()
         {
-            this.Command.CommandText = $"DELETE FROM libros WHERE id = {this.id}";
+            this.Command.CommandText = $"DELETE FROM libro WHERE id = {this.id}";
             this.Command.ExecuteNonQuery();
         }
     }

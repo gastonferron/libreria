@@ -15,7 +15,7 @@ namespace capaDatos
 
         public void Save()
         {
-            this.Command.CommandText = $"INSERT INTO socio(icbn, nombre, autor, genero, fechalanzamiento, cantidadpaginas) " +
+            this.Command.CommandText = $"INSERT INTO socio(nombre, apellido, telefono) " +
                 $"VALUES('{this.nombre}', '{this.apellido}', {this.telefono})";
 
             this.Command.ExecuteNonQuery();
@@ -26,7 +26,7 @@ namespace capaDatos
             this.Command.CommandText = "SELECT * FROM socio";
             this.Reader = this.Command.ExecuteReader();
 
-            List<ModelSocio> result = new List<ModelSocio>();
+            List<ModelSocio> nuevoSocio = new List<ModelSocio>();
             while (this.Reader.Read())
             {
                 ModelSocio socio = new ModelSocio();
@@ -34,9 +34,9 @@ namespace capaDatos
                 socio.nombre = this.Reader["nombre"].ToString();
                 socio.apellido = this.Reader["apellido"].ToString();
                 socio.telefono = Int32.Parse(this.Reader["telefono"].ToString());
-                result.Add(socio);
+                nuevoSocio.Add(socio);
             }
-            return result;
+            return nuevoSocio;
         }
 
         public void Delete()

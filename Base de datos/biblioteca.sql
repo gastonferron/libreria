@@ -1,30 +1,31 @@
 CREATE DATABASE programacion CHARSET utf8mb4;
 
 CREATE TABLE libro(
-	id_libro INT UNSIGNED AUTO_INCREMENT NOT NULL,
-    ISBN INT (13) NOT NULL,
-    nom_libro VARCHAR(30) NOT NULL,
+	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    ICBN INT (13) NOT NULL,
+    nombre VARCHAR(30) NOT NULL,
     autor VARCHAR(30) NOT NULL,
     genero VARCHAR(20) NOT NULL,
-    fecha_lanzamiento DATE NOT NULL,
-    cant_paginas SMALLINT(10) NOT NULL,
-    PRIMARY KEY(id_libro)
+    fechaLanzamiento VARCHAR(15) NOT NULL,
+    cantidadPaginas INT(10) NOT NULL,
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE socio(
-	id_socio INT UNSIGNED AUTO_INCREMENT NOT NULL,
-    nom_socio VARCHAR(30) NOT NULL,
-    ape_socio VARCHAR(30) NOT NULL,
-    tel_socio TINYINT(20) NOT NULL,
-    PRIMARY KEY(id_socio)
+	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
+    nombre VARCHAR(30) NOT NULL,
+    apellido VARCHAR(30) NOT NULL,
+    telefono INT(20) NOT NULL,
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE prestamo(
+	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	socio INT UNSIGNED NOT NULL,
     libro INT UNSIGNED NOT NULL,
-    fecha_prestamo DATE,
-    fecha_devolucion DATE,
-	CONSTRAINT FK_socio FOREIGN KEY (socio) REFERENCES socio(id_socio),
-    CONSTRAINT FK_libro FOREIGN KEY (libro) REFERENCES libro(id_libro),
-    PRIMARY KEY(socio, libro,fecha_prestamo)
+    fechaPrestamo VARCHAR(15),
+    fechaDevolucion VARCHAR(15),
+	CONSTRAINT FK_socio FOREIGN KEY (socio) REFERENCES socio(id),
+    CONSTRAINT FK_libro FOREIGN KEY (libro) REFERENCES libro(id),
+    PRIMARY KEY(id)
 );
