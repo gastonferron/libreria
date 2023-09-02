@@ -19,13 +19,13 @@ namespace capaDatos
 
         public void Save()
         {
-            this.Command.CommandText = $"INSERT INTO libros(icbn, nombre, autor, genero, fechalanzamiento, cantidadpaginas) " +
+            this.Command.CommandText = $"INSERT INTO libro(icbn, nombre, autor, genero, fechalanzamiento, cantidadpaginas) " +
                 $"VALUES({this.icbn}, '{this.nombre}', '{this.autor}', '{this.genero}', '{this.fechaLanzamiento}', {this.cantidadPaginas})";
 
             this.Command.ExecuteNonQuery();
         }
 
-        public List<ModelLibro> obtenerLibros()
+        public List<ModelLibro> GetAllBooks()
         {
             this.Command.CommandText = "SELECT * FROM libros";
             this.Reader = this.Command.ExecuteReader();
