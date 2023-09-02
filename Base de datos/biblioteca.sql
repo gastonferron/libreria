@@ -15,7 +15,7 @@ CREATE TABLE socio(
 	id_socio INT UNSIGNED AUTO_INCREMENT NOT NULL,
     nom_socio VARCHAR(30) NOT NULL,
     ape_socio VARCHAR(30) NOT NULL,
-    tel_socio TINYINT NOT NULL,
+    tel_socio TINYINT(20) NOT NULL,
     PRIMARY KEY(id_socio)
 );
 
