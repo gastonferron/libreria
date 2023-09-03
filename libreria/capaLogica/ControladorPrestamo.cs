@@ -49,7 +49,7 @@ namespace capaLogica
         {
             ModelPrestamo prestamo = new ModelPrestamo();
             prestamo.id = id;
-            prestamo.Delete();
+            prestamo.Eliminar();
         }
     }
 }

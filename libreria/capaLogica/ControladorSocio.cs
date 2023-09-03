@@ -47,7 +47,7 @@ namespace capaLogica
         {
             ModelSocio socio = new ModelSocio();
             socio.id = id;
-            socio.Delete();
+            socio.Eliminar();
         }
 
     }

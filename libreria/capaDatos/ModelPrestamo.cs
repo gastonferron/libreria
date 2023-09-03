@@ -41,7 +41,7 @@ namespace capaDatos
             return nuevoPrestamo;
         }
 
-        public void Delete()
+        public void Eliminar()
         {
             this.Command.CommandText = $"DELETE FROM socio WHERE id = {this.id}";
             this.Command.ExecuteNonQuery();

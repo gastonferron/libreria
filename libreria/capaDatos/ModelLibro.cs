@@ -46,7 +46,7 @@ namespace capaDatos
             return nuevoLibro;
         }
 
-        public void Delete()
+        public void Eliminar()
         {
             this.Command.CommandText = $"DELETE FROM libro WHERE id = {this.id}";
             this.Command.ExecuteNonQuery();
