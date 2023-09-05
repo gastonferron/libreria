@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace capaLogica
 {
-    class ControladorPrestamo
+    public static class ControladorPrestamo
     {
         public static void Crear(int socio, int libro, string fechaPrestamo, string fechaDevolucion)
         {
@@ -45,7 +45,7 @@ namespace capaLogica
             return table;
         }
 
-        public static void EliminarSocio(int id)
+        public static void EliminarPrestamo(int id)
         {
             ModelPrestamo prestamo = new ModelPrestamo();
             prestamo.id = id;

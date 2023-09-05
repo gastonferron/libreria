@@ -8,16 +8,17 @@ using System.Threading.Tasks;
 
 namespace capaLogica
 {
-    class ControladorLibro
+    public static class ControladorLibro
     {
 
-        public static void Crear(int icbn, string nombre, string autor, string genero, int cantidadPaginas)
+        public static void Crear(int icbn, string nombre, string autor, string genero, string fechaLanzamiento, int cantidadPaginas)
         {
             ModelLibro libro = new ModelLibro();
             libro.icbn = icbn;
             libro.nombre = nombre;
             libro.autor = autor;
             libro.genero = genero;
+            libro.fechaLanzamiento = fechaLanzamiento;
             libro.cantidadPaginas = cantidadPaginas;
             libro.Save();
         }
@@ -32,6 +33,7 @@ namespace capaLogica
             table.Columns.Add("nombre", typeof(string));
             table.Columns.Add("autor", typeof(string));
             table.Columns.Add("genero", typeof(string));
+            table.Columns.Add("fechaLanzamiento", typeof(string));
             table.Columns.Add("cantidadPaginas", typeof(int));
 
             foreach (ModelLibro libro in libros)
@@ -41,6 +43,7 @@ namespace capaLogica
                 row["nombre"] = libro.nombre;
                 row["autor"] = libro.autor;
                 row["genero"] = libro.genero;
+                row["fechaLanzamiento"] = libro.fechaLanzamiento;
                 row["cantidadPaginas"] = libro.cantidadPaginas;
                 table.Rows.Add(row);
             }
